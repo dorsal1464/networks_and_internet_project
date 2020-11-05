@@ -1,1 +1,6 @@
-[{"title": "title", "1": "a", "2": "b", "3": "c", "4": "d", "correct": "3"}, {"title": "something", "1": "a1", "2": "b2", "3": "c3", "4": "d4", "correct": "1"}]
+[
+  {"title": "The capital of Israel is", "1": "Tel Aviv", "2": "Haifa", "3": "Jerusalem", "4": "Kfar Saba", "correct": "3"},
+  {"title": "A protocol that is used to assign IP addresses", "1": "DHCP", "2": "UDP", "3": "IPv4", "4": "SSL", "correct": "1"},
+  {"title": "CRC32 is used to", "1": "Encrypt frames over the network", "2": "Validate certificates in the TLS protocol", "3": "Detect errors in a frame", "4": "Detect and correct errors in a frame", "correct": "3"},
+  {"title": "MAC is", "1": "A unique identifier used to differentiate between devices", "2": "An Encryption Algorithm", "3": "Media Access Control protocol", "4": "MAC and Cheese, of course", "correct": "1"}
+]
