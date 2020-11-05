@@ -29,6 +29,7 @@ def query_question():
         lst.remove(a)
         perm.append(a)
     print(perm)
+    # select and format
     new_correct = perm.index(q['correct']) + 1
     text = "{}:\n1. {}\n2. {}\n3. {}\n4. {}\n".format(q['title'], q[perm[0]], q[perm[1]], q[perm[2]], q[perm[3]])
     return text, new_correct
