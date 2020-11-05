@@ -30,4 +30,4 @@ class Client:
             self.conn.close()
 
     def converse(self):
-        pass
+        print("Welcome to HaMirdaf!")

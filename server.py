@@ -39,9 +39,3 @@ class Server:
         t = threading.Thread(target=self.accept)
         self.threads.append(t)
         t.start()
-
-
-if __name__ == '__main__':
-    s = Server()
-    s.start()
-
