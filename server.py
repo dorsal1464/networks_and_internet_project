@@ -3,36 +3,12 @@ import socket
 import threading
 import json
 import random
+from levels import *
 
 IP = '127.0.0.1'
 PORT = 8008
 MAX_COUNT = 4
 HIT_PROB = 0.75
-
-
-def query_question():
-    # question format:
-    # { 'title':
-    #   1:
-    #   2:
-    #   3:
-    #   4:
-    #   'correct':
-    # }
-    questions = json.load(open('questions.json', 'r'))
-    q = random.choice(questions)
-    # create random permutation
-    lst = ['1', '2', '3', '4']
-    perm = list()
-    for i in range(0, 4):
-        a = random.choice(lst)
-        lst.remove(a)
-        perm.append(a)
-    print(perm)
-    # select and format
-    new_correct = perm.index(q['correct']) + 1
-    text = "{}:\n1. {}\n2. {}\n3. {}\n4. {}\n".format(q['title'], q[perm[0]], q[perm[1]], q[perm[2]], q[perm[3]])
-    return text, new_correct
 
 
 class Server:
@@ -64,7 +40,16 @@ class Server:
                 t.start()
 
     def process(self, conn):
-        pass
+        money = 0
+        # level 1
+        money = 5000*server_level_1(conn)
+        while money < 5000:
+            # retry...
+            conn.send(b"You failed the level, please try again...")
+            money = 5000*server_level_1(conn)
+        else:
+            conn.send(("You have earned "+str(money)+"$").encode('utf-8'))
+        # level 2
 
     def start(self):
         # start the server

@@ -1,5 +1,6 @@
 
 import socket
+from levels import *
 
 IP = '127.0.0.1'
 PORT = 8008
@@ -11,6 +12,10 @@ class Client:
         self.conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def start(self):
+        print("Welcome to HaMirdaf!")
+        print("Would you like to play?")
+        if input(">>> ") not in ["yes", "Yes"]:
+            return
         try:
             self.conn.connect((IP, PORT))
         except socket.SO_ERROR:
@@ -30,4 +35,5 @@ class Client:
             self.conn.close()
 
     def converse(self):
-        print("Welcome to HaMirdaf!")
+        print("Level 1:")
+        client_level_1(self.conn)
